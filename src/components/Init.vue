@@ -1,7 +1,7 @@
 <template>
   <nav mt3>
     <router-link to="/" i-carbon:home icon-btn />
-    <a to="/" i-carbon:sun icon-btn @click="toggleDark()" />
+    <a to="/" i-carbon:sun icon-btn dark:i-carbon:moon @click="toggleDark()" />
     <a
       href="https://github.com/naiheyoung/vitue-lite"
       target="_blank"

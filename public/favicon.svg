@@ -1,9 +1,40 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <style>
-    path { fill: #222; }
-    @media (prefers-color-scheme: dark) {
-      path { fill: #ffffff; }
-    }
-  </style>
-  <path d="M27.562 26L17.17 8.928l2.366-3.888L17.828 4L16 7.005L14.17 4l-1.708 1.04l2.366 3.888L4.438 26H2v2h28v-2zM16 10.85L25.22 26H17v-8h-2v8H6.78z" />
-</svg>
+<svg
+        id="vitue-lite"
+        viewBox="200 190 60 75"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <desc>Source: openclipart.org/detail/209545</desc>
+        <defs></defs>
+        <g transform="matrix(1, 0, 0, 1, 102.399995, 97.600023)">
+          <path
+            style="
+              paint-order: fill;
+              stroke: rgb(178, 191, 195);
+              fill: rgba(255, 255, 255, 0);
+              stroke-width: 4px;
+              stroke-linecap: round;
+              stroke-linejoin: round;
+            "
+            d="M 102.6 122.4 L 127.6 162.4 L 152.6 122.4"
+          ></path>
+          <polyline
+            style="
+              stroke: rgb(178, 191, 195);
+              fill: rgba(255, 255, 255, 0);
+              stroke-width: 4px;
+              stroke-linecap: square;
+              stroke-linejoin: bevel;
+            "
+            points="102.6 142.4 127.5999984741211 97.5999984741211 152.60000610351562 142.39999389648438"
+          ></polyline>
+        </g>
+        <path
+          style="
+            fill: rgb(216, 216, 216);
+            stroke-linecap: round;
+            stroke-width: 3px;
+            stroke: rgb(178, 191, 195);
+          "
+          d="M 230 220 L 230 240"
+        ></path>
+      </svg>
