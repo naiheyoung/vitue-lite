@@ -16,7 +16,7 @@ A <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 
 - 😈UnoCSS 原子化 CSS
 - 👍 内置 VueUse 工具
 
-## GET
+## USAGE
 
 ```bash
 degit naiheyoung/vitue-lite [your-project-name]
