@@ -25,3 +25,5 @@ degit naiheyoung/vitue-lite [your-project-name]
 npm i degit -g
 # that`s good!
 ```
+
+❗❗❗半成品❗❗❗
