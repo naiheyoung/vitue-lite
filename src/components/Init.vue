@@ -17,14 +17,13 @@
 </template>
 
 <script setup>
-const isDark = useDark();
-const toggleDark = useToggle(isDark);
+import { toggleDark } from "~/composables";
 </script>
 
 <style scoped>
 nav:last-child a {
   margin-right: 0.75rem;
-  transition: .25s;
+  transition: 0.25s;
 }
 
 nav:first-of-type a {
