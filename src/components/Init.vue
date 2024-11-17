@@ -6,8 +6,7 @@
       href="https://github.com/naiheyoung/vitue-lite"
       target="_blank"
       i-carbon:logo-github
-      icon-btn
-    />
+      icon-btn />
   </nav>
   <p mt5>Path:</p>
   <nav mt3>
@@ -17,7 +16,7 @@
 </template>
 
 <script setup>
-import { toggleDark } from "~/composables";
+import { toggleDark } from '~/composables'
 </script>
 
 <style scoped>
