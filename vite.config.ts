@@ -8,11 +8,35 @@ import { VueRouterAutoImports } from 'unplugin-vue-router'
 import VueRouter from 'unplugin-vue-router/vite'
 import { defineConfig } from 'vite'
 
+const assetsDir = 'assets'
+const imgExts = ['.jpg', '.jpeg', '.png', '.webp', '.gif', '.svg']
+const fontExts = ['.woff2', '.woff', '.ttf']
+
 export default defineConfig({
   resolve: {
     alias: {
       '~/': `${path.resolve(__dirname, 'src')}/`,
     },
+  },
+  build: {
+    rollupOptions: {
+      output: {
+        entryFileNames: `${assetsDir}/js/app.js`,
+        chunkFileNames: `${assetsDir}/js/[name].[hash].js`,
+        assetFileNames(chunkInfo) {
+          if (chunkInfo.name?.endsWith('.css')) {
+            return `${assetsDir}/css/[name].[hash][extname]`
+          }
+          if (imgExts.some(ext => chunkInfo.name?.endsWith(ext))) {
+            return `${assetsDir}/images/[name].[hash][extname]`
+          }
+          if (fontExts.some(ext => chunkInfo.name?.endsWith(ext))) {
+            return `${assetsDir}/fonts/[name].[hash][extname]`
+          }
+          return `${assetsDir}/other/[name].[hash][extname]`
+        },
+      }
+    }
   },
   plugins: [
     VueMacros({
