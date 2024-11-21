@@ -4,7 +4,7 @@ import { routes } from 'vue-router/auto-routes'
 import App from './App.vue'
 
 import '@unocss/reset/tailwind.css'
-import '~/static/styles/main.css'
+import '~/assets/css/index.css'
 import 'uno.css'
 
 const app = createApp(App)
