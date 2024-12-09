@@ -1,5 +1,8 @@
 {
   "bracketSameLine": true,
   "semi": false,
-  "singleQuote": true
+  "singleQuote": true,
+  "htmlWhitespaceSensitivity": "ignore",
+  "trailingComma": "none",
+  "arrowParens": "avoid"
 }
