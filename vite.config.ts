@@ -15,12 +15,17 @@ const fontExts = ['.woff2', '.woff', '.ttf']
 export default defineConfig({
   resolve: {
     alias: {
-      '~/': `${path.resolve(__dirname, 'src')}/`,
-    },
+      '~/': `${path.resolve(__dirname, 'src')}/`
+    }
   },
   build: {
     rollupOptions: {
       output: {
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            return 'vendor'
+          }
+        },
         entryFileNames: `${assetsDir}/js/app.js`,
         chunkFileNames: `${assetsDir}/js/[name].[hash].js`,
         assetFileNames(chunkInfo) {
@@ -34,7 +39,7 @@ export default defineConfig({
             return `${assetsDir}/fonts/[name].[hash][extname]`
           }
           return `${assetsDir}/other/[name].[hash][extname]`
-        },
+        }
       }
     }
   },
@@ -46,10 +51,10 @@ export default defineConfig({
         vue: Vue({
           script: {
             propsDestructure: true,
-            defineModel: true,
-          },
-        }),
-      },
+            defineModel: true
+          }
+        })
+      }
     }),
     VueRouter(),
     AutoImport({
@@ -59,18 +64,16 @@ export default defineConfig({
         VueRouterAutoImports,
         {
           // add any other imports you were relying on
-          'vue-router/auto': ['useLink'],
-        },
+          'vue-router/auto': ['useLink']
+        }
       ],
       dts: true,
-      dirs: [
-        './src/composables',
-      ],
-      vueTemplate: true,
+      dirs: ['./src/composables'],
+      vueTemplate: true
     }),
     Components({
-      dts: true,
+      dts: true
     }),
-    UnoCSS(),
-  ],
+    UnoCSS()
+  ]
 })
