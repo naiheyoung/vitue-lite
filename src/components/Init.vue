@@ -1,5 +1,5 @@
 <template>
-  <nav mt3>
+  <nav mt3 fixed top-4 right-4 flex gap-x-3>
     <router-link to="/" i-carbon:home icon-btn />
     <a to="/" i-carbon:sun icon-btn dark:i-carbon:moon @click="toggleDark()" />
     <a
@@ -25,7 +25,10 @@ nav:last-child a {
   transition: 0.25s;
 }
 
-nav:first-of-type a {
-  margin-right: 0.75rem;
+nav[fixed] {
+  border-radius: 9px;
+  box-shadow: 0 0 3px rgba(136, 136, 136, 0.35);
+  padding-inline: 0.35rem;
+  padding-block: 0.135rem;
 }
 </style>

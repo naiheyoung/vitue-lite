@@ -6,8 +6,7 @@
         id="vitue-lite"
         w25
         viewBox="200 190 60 75"
-        xmlns="http://www.w3.org/2000/svg"
-      >
+        xmlns="http://www.w3.org/2000/svg">
         <desc>Source: openclipart.org/detail/209545</desc>
         <defs></defs>
         <g transform="matrix(1, 0, 0, 1, 102.399995, 97.600023)">
@@ -20,8 +19,7 @@
               stroke-linecap: round;
               stroke-linejoin: round;
             "
-            d="M 102.6 122.4 L 127.6 162.4 L 152.6 122.4"
-          ></path>
+            d="M 102.6 122.4 L 127.6 162.4 L 152.6 122.4"></path>
           <polyline
             style="
               stroke: rgb(178, 191, 195);
@@ -30,8 +28,7 @@
               stroke-linecap: square;
               stroke-linejoin: bevel;
             "
-            points="102.6 142.4 127.5999984741211 97.5999984741211 152.60000610351562 142.39999389648438"
-          ></polyline>
+            points="102.6 142.4 127.5999984741211 97.5999984741211 152.60000610351562 142.39999389648438"></polyline>
         </g>
         <path
           style="
@@ -40,14 +37,9 @@
             stroke-width: 3px;
             stroke: rgb(178, 191, 195);
           "
-          d="M 230 220 L 230 240"
-        ></path>
+          d="M 230 220 L 230 240"></path>
       </svg>
     </div>
     <p font-italic>Opinionated Vite Starter Template</p>
   </div>
 </template>
-
-<script setup></script>
-
-<style scoped></style>
