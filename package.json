@@ -7,7 +7,8 @@
   "scripts": {
     "build": "vite build",
     "dev": "vite --port 3000",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "pnpm build && firebase deploy"
   },
   "dependencies": {
     "@vueuse/core": "^13.8.0",
