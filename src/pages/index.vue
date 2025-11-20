@@ -2,11 +2,7 @@
   <div text-gray-500>
     <div flex justify-center>
       <!-- w7.5 -->
-      <svg
-        id="vitue-lite"
-        w25
-        viewBox="200 190 60 75"
-        xmlns="http://www.w3.org/2000/svg">
+      <svg id="vitue-lite" w25 viewBox="200 190 60 75" xmlns="http://www.w3.org/2000/svg">
         <desc>Source: openclipart.org/detail/209545</desc>
         <defs></defs>
         <g transform="matrix(1, 0, 0, 1, 102.399995, 97.600023)">
