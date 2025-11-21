@@ -11,7 +11,7 @@ export default defineConfig({
   shortcuts: [
     [
       'btn',
-      'px-4 py-1 rounded inline-block bg-indigo-600 text-white cursor-pointer hover:bg-indigo-700 disabled:cursor-default disabled:bg-gray-600 disabled:opacity-50'
+      'px-4 py-1 rounded inline-block bg-indigo-600 text-white cursor-pointer hover:bg-indigo-700 disabled:cursor-default disabled:bg-gray-600 disabled:opacity-50 transition duration-200 ease-in-out'
     ],
     [
       'icon-btn',
@@ -27,13 +27,20 @@ export default defineConfig({
     presetAttributify(),
     presetIcons({
       scale: 1.2,
-      warn: true
+      warn: true,
+      extraProperties: {
+        display: 'inline-block',
+        'user-select': 'none',
+        transition: 'all 200ms ease-in-out'
+      }
     }),
     presetWebFonts({
+      provider: 'bunny',
       fonts: {
         sans: 'DM Sans',
         serif: 'DM Serif Display',
-        mono: 'DM Mono'
+        mono: 'DM Mono',
+        jetbrains: 'JetBrains Mono'
       }
     })
   ]

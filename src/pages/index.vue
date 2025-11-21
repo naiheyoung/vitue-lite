@@ -36,6 +36,6 @@
           d="M 230 220 L 230 240"></path>
       </svg>
     </div>
-    <p font-italic>Opinionated Vite Starter Template</p>
+    <p font-italic font-mono>Opinionated Vite Starter Template</p>
   </div>
 </template>

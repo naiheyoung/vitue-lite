@@ -1,7 +1,18 @@
 <template>
   <nav mt3 fixed top-4 right-4 flex gap-x-3>
     <router-link to="/" i-carbon:home icon-btn />
-    <a to="/" i-carbon:sun icon-btn dark:i-carbon:moon @click="toggleDark()" />
+    <a
+      to="/"
+      i-carbon:sun
+      icon-btn
+      dark:i-carbon:moon
+      @click="
+        useThemeSwitchAnime(
+          $event,
+          () => isDark,
+          () => toggleDark()
+        )
+      " />
     <a
       href="https://github.com/naiheyoung/vitue-lite"
       target="_blank"
