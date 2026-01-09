@@ -1,3 +1,75 @@
+@import '@naiheyoung/color';
+@import './prose.css';
+
+/* dm-mono-latin-400-normal */
+@font-face {
+  font-family: 'DM Mono';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src:
+    url(https://cdn.jsdelivr.net/fontsource/fonts/dm-mono@latest/latin-400-normal.woff2)
+      format('woff2'),
+    url(https://cdn.jsdelivr.net/fontsource/fonts/dm-mono@latest/latin-400-normal.woff)
+      format('woff');
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308,
+    U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* dm-mono-latin-500-normal */
+@font-face {
+  font-family: 'DM Mono';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src:
+    url(https://cdn.jsdelivr.net/fontsource/fonts/dm-mono@latest/latin-500-normal.woff2)
+      format('woff2'),
+    url(https://cdn.jsdelivr.net/fontsource/fonts/dm-mono@latest/latin-500-normal.woff)
+      format('woff');
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308,
+    U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* dm-sans-latin-wght-normal */
+@font-face {
+  font-family: 'DM Sans Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 1000;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/dm-sans:vf@latest/latin-wght-normal.woff2)
+    format('woff2-variations');
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308,
+    U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* jetbrains-mono-latin-wght-normal */
+@font-face {
+  font-family: 'JetBrains Mono Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 800;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/jetbrains-mono:vf@latest/latin-wght-normal.woff2)
+    format('woff2-variations');
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308,
+    U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+:root,
+:host {
+  --font-mono: 'DM Mono', monospace;
+  --font-sans: 'DM Sans Variable', monospace;
+  --font-code: 'JetBrains Mono Variable', monospace;
+}
+
+::selection {
+  background-color: rgb(var(--colors-d-rgb) / 0.27);
+}
+
 html,
 body,
 #root {
@@ -8,4 +80,29 @@ body,
 
 html.dark {
   background: #121212;
+}
+
+#vitue-lite {
+  > g > path,
+  polyline {
+    --offset: 60;
+    stroke-dasharray: 30;
+    animation: drawing 1.5s linear infinite;
+  }
+  > g > polyline {
+    --offset: -60;
+  }
+}
+
+@keyframes drawing {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: var(--offset);
+  }
+}
+
+.flip {
+  transform: scaleX(-1);
 }

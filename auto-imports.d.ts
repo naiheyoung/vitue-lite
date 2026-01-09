@@ -9,6 +9,14 @@ declare global {
   const EffectScope: typeof import('vue').EffectScope
   const asyncComputed: typeof import('@vueuse/core').asyncComputed
   const autoResetRef: typeof import('@vueuse/core').autoResetRef
+  const bundledLanguages: typeof import('./src/composables/shiki.bundle').bundledLanguages
+  const bundledThemes: typeof import('./src/composables/shiki.bundle').bundledThemes
+  const codeBreakTransformer: typeof import('./src/composables/highlighter').codeBreakTransformer
+  const codeToHast: typeof import('./src/composables/shiki.bundle').codeToHast
+  const codeToHtml: typeof import('./src/composables/shiki.bundle').codeToHtml
+  const codeToTokens: typeof import('./src/composables/shiki.bundle').codeToTokens
+  const codeToTokensBase: typeof import('./src/composables/shiki.bundle').codeToTokensBase
+  const codeToTokensWithThemes: typeof import('./src/composables/shiki.bundle').codeToTokensWithThemes
   const computed: typeof import('vue').computed
   const computedAsync: typeof import('@vueuse/core').computedAsync
   const computedEager: typeof import('@vueuse/core').computedEager
@@ -19,6 +27,7 @@ declare global {
   const createApp: typeof import('vue').createApp
   const createEventHook: typeof import('@vueuse/core').createEventHook
   const createGlobalState: typeof import('@vueuse/core').createGlobalState
+  const createHighlighter: typeof import('./src/composables/shiki.bundle').createHighlighter
   const createInjectionState: typeof import('@vueuse/core').createInjectionState
   const createReactiveFn: typeof import('@vueuse/core').createReactiveFn
   const createRef: typeof import('@vueuse/core').createRef
@@ -39,7 +48,10 @@ declare global {
   const getCurrentInstance: typeof import('vue').getCurrentInstance
   const getCurrentScope: typeof import('vue').getCurrentScope
   const getCurrentWatcher: typeof import('vue').getCurrentWatcher
+  const getLastGrammarState: typeof import('./src/composables/shiki.bundle').getLastGrammarState
+  const getSingletonHighlighter: typeof import('./src/composables/shiki.bundle').getSingletonHighlighter
   const h: typeof import('vue').h
+  const highlighter: typeof import('./src/composables/highlighter').highlighter
   const ignorableWatch: typeof import('@vueuse/core').ignorableWatch
   const inject: typeof import('vue').inject
   const injectLocal: typeof import('@vueuse/core').injectLocal
@@ -309,6 +321,9 @@ declare global {
   // @ts-ignore
   export type { Component, Slot, Slots, ComponentPublicInstance, ComputedRef, DirectiveBinding, ExtractDefaultPropTypes, ExtractPropTypes, ExtractPublicPropTypes, InjectionKey, PropType, Ref, ShallowRef, MaybeRef, MaybeRefOrGetter, VNode, WritableComputedRef } from 'vue'
   import('vue')
+  // @ts-ignore
+  export type { BundledLanguage, BundledTheme, Highlighter } from './src/composables/shiki.bundle'
+  import('./src/composables/shiki.bundle')
 }
 
 // for vue template auto import
@@ -319,6 +334,14 @@ declare module 'vue' {
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
     readonly asyncComputed: UnwrapRef<typeof import('@vueuse/core')['asyncComputed']>
     readonly autoResetRef: UnwrapRef<typeof import('@vueuse/core')['autoResetRef']>
+    readonly bundledLanguages: UnwrapRef<typeof import('./src/composables/shiki.bundle')['bundledLanguages']>
+    readonly bundledThemes: UnwrapRef<typeof import('./src/composables/shiki.bundle')['bundledThemes']>
+    readonly codeBreakTransformer: UnwrapRef<typeof import('./src/composables/highlighter')['codeBreakTransformer']>
+    readonly codeToHast: UnwrapRef<typeof import('./src/composables/shiki.bundle')['codeToHast']>
+    readonly codeToHtml: UnwrapRef<typeof import('./src/composables/shiki.bundle')['codeToHtml']>
+    readonly codeToTokens: UnwrapRef<typeof import('./src/composables/shiki.bundle')['codeToTokens']>
+    readonly codeToTokensBase: UnwrapRef<typeof import('./src/composables/shiki.bundle')['codeToTokensBase']>
+    readonly codeToTokensWithThemes: UnwrapRef<typeof import('./src/composables/shiki.bundle')['codeToTokensWithThemes']>
     readonly computed: UnwrapRef<typeof import('vue')['computed']>
     readonly computedAsync: UnwrapRef<typeof import('@vueuse/core')['computedAsync']>
     readonly computedEager: UnwrapRef<typeof import('@vueuse/core')['computedEager']>
@@ -329,6 +352,7 @@ declare module 'vue' {
     readonly createApp: UnwrapRef<typeof import('vue')['createApp']>
     readonly createEventHook: UnwrapRef<typeof import('@vueuse/core')['createEventHook']>
     readonly createGlobalState: UnwrapRef<typeof import('@vueuse/core')['createGlobalState']>
+    readonly createHighlighter: UnwrapRef<typeof import('./src/composables/shiki.bundle')['createHighlighter']>
     readonly createInjectionState: UnwrapRef<typeof import('@vueuse/core')['createInjectionState']>
     readonly createReactiveFn: UnwrapRef<typeof import('@vueuse/core')['createReactiveFn']>
     readonly createRef: UnwrapRef<typeof import('@vueuse/core')['createRef']>
@@ -347,7 +371,10 @@ declare module 'vue' {
     readonly getCurrentInstance: UnwrapRef<typeof import('vue')['getCurrentInstance']>
     readonly getCurrentScope: UnwrapRef<typeof import('vue')['getCurrentScope']>
     readonly getCurrentWatcher: UnwrapRef<typeof import('vue')['getCurrentWatcher']>
+    readonly getLastGrammarState: UnwrapRef<typeof import('./src/composables/shiki.bundle')['getLastGrammarState']>
+    readonly getSingletonHighlighter: UnwrapRef<typeof import('./src/composables/shiki.bundle')['getSingletonHighlighter']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
+    readonly highlighter: UnwrapRef<typeof import('./src/composables/highlighter')['highlighter']>
     readonly ignorableWatch: UnwrapRef<typeof import('@vueuse/core')['ignorableWatch']>
     readonly inject: UnwrapRef<typeof import('vue')['inject']>
     readonly injectLocal: UnwrapRef<typeof import('@vueuse/core')['injectLocal']>

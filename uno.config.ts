@@ -1,13 +1,14 @@
-import {
-  defineConfig,
-  presetAttributify,
-  presetIcons,
-  presetWind3,
-  presetWebFonts
-} from 'unocss'
+import { defineConfig, presetAttributify, presetIcons, presetWind4 } from 'unocss'
 
 export default defineConfig({
-  // composite style alias
+  theme: {
+    font: {
+      sans: 'var(--font-sans)',
+      mono: 'var(--font-mono)',
+      code: 'var(--font-code)'
+    }
+  },
+  safelist: ['whitespace-pre-wrap', 'break-words'],
   shortcuts: [
     [
       'btn',
@@ -23,7 +24,7 @@ export default defineConfig({
     ]
   ],
   presets: [
-    presetWind3(),
+    presetWind4(),
     presetAttributify(),
     presetIcons({
       scale: 1.2,
@@ -32,15 +33,6 @@ export default defineConfig({
         display: 'inline-block',
         'user-select': 'none',
         transition: 'all 200ms ease-in-out'
-      }
-    }),
-    presetWebFonts({
-      provider: 'bunny',
-      fonts: {
-        sans: 'DM Sans',
-        serif: 'DM Serif Display',
-        mono: 'DM Mono',
-        jetbrains: 'JetBrains Mono'
       }
     })
   ]

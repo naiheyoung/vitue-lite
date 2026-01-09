@@ -5,7 +5,8 @@
     <div class="error__msg text-gray font-mono opacity80">Page Not Found.</div>
     <div class="error__footer my4">
       <div class="error__footer__text"></div>
-      <RouterLink to="/" btn>Back</RouterLink>
+      $
+      <RouterLink to="/" font-mono opacity-75>cd ..</RouterLink>
     </div>
   </div>
 </template>

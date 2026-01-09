@@ -30,23 +30,16 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
-    '/[...catchAll]': RouteRecordInfo<
-      '/[...catchAll]',
-      '/:catchAll(.*)',
-      { catchAll: ParamValue<true> },
-      { catchAll: ParamValue<false> },
+    '/[...path]': RouteRecordInfo<
+      '/[...path]',
+      '/:path(.*)',
+      { path: ParamValue<true> },
+      { path: ParamValue<false> },
       | never
     >,
-    '/say/hello': RouteRecordInfo<
-      '/say/hello',
-      '/say/hello',
-      Record<never, never>,
-      Record<never, never>,
-      | never
-    >,
-    '/say/hi': RouteRecordInfo<
-      '/say/hi',
-      '/say/hi',
+    '/me': RouteRecordInfo<
+      '/me',
+      '/me',
       Record<never, never>,
       Record<never, never>,
       | never
@@ -70,21 +63,15 @@ declare module 'vue-router/auto-routes' {
       views:
         | never
     }
-    'src/pages/[...catchAll].vue': {
+    'src/pages/[...path].vue': {
       routes:
-        | '/[...catchAll]'
+        | '/[...path]'
       views:
         | never
     }
-    'src/pages/say/hello.vue': {
+    'src/pages/me.md': {
       routes:
-        | '/say/hello'
-      views:
-        | never
-    }
-    'src/pages/say/hi.vue': {
-      routes:
-        | '/say/hi'
+        | '/me'
       views:
         | never
     }
