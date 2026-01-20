@@ -1,5 +1,5 @@
 <template>
-  <nav mt3 fixed top-4 right-4 flex gap-x-3>
+  <nav mt3 fixed top-4 right-4 flex gap-x-3 z-9>
     <div class="hover:cursor-pointer transition-opacity opacity-0" @click="backToTop()">
       <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 24 24">
         <path

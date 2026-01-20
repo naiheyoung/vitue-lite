@@ -6,8 +6,11 @@
   --prose-padding-inline: 1.5rem;
   --prose-radius: 0.5rem;
   --prose-diff-add-color: #3dd68c;
+  --prose-diff-add-bg-color: rgb(61 214 140 / 0.35);
   --prose-diff-remove-color: #cb7676;
+  --prose-diff-remove-bg-color: rgb(203 118 118 / 0.35);
   --prose-highlighted-bg-color: rgba(101, 117, 133, 0.16);
+  --prose-l-highlighted-word-color: #ff8282;
   --prose-highlighted-word-color: #e6a817;
   --prose-focused-opacity: 0.7;
   --prose-focused-blur: 0.095rem;
@@ -79,24 +82,30 @@ html .prose .shiki {
   }
 }
 
-html.dark .prose .has-diff span.diff::before {
+.prose .has-diff span.diff::before {
   position: absolute;
   left: calc(var(--prose-padding-inline) / 3);
   transition: color 0.35s;
 }
 
-html.dark .prose .has-diff span.diff.add::before {
-  content: '+';
-  color: var(--prose-diff-add-color);
+.prose .has-diff span.diff.add {
+  &::before {
+    content: '+';
+    color: var(--prose-diff-add-color);
+  }
 }
 
-html.dark .prose .has-diff span.diff.remove {
-  opacity: 0.85;
+.prose .has-diff span.diff.remove {
+  opacity: 0.75;
 
   &::before {
     content: '-';
     color: var(--prose-diff-remove-color);
   }
+}
+
+html.dark .prose .has-diff span.diff.remove {
+  opacity: 0.85;
 }
 
 html.dark .prose .has-highlighted span.highlighted {
@@ -108,14 +117,18 @@ html.dark .prose .has-highlighted span.highlighted {
   padding-inline: var(--prose-padding-inline);
 }
 
-html.dark .prose .shiki span.highlighted-word {
+.prose .shiki span.highlighted-word {
   padding: 1px 3px;
   margin: -1px -3px;
   border-radius: 3px;
+  text-decoration: var(--prose-l-highlighted-word-color) underline;
+}
+
+html.dark .prose .shiki span.highlighted-word {
   text-decoration: var(--prose-highlighted-word-color) underline;
 }
 
-html.dark .prose .has-focused .line:not(.focused) {
+.prose .has-focused .line:not(.focused) {
   opacity: var(--prose-focused-opacity);
   filter: blur(var(--prose-focused-blur));
   transition:
@@ -123,7 +136,7 @@ html.dark .prose .has-focused .line:not(.focused) {
     filter 0.35s;
 }
 
-html.dark .prose .has-focused:hover .line:not(.focused) {
+.prose .has-focused:hover .line:not(.focused) {
   opacity: 1;
   filter: blur(0);
 }
@@ -237,6 +250,30 @@ html.dark .prose .has-focused:hover .line:not(.focused) {
   }
 }
 
+.prose ol {
+  padding: 1rem;
+  counter-reset: orderedCounter;
+
+  > li {
+    position: relative;
+    counter-increment: orderedCounter;
+    position: relative;
+    padding-inline: 2.5rem;
+    padding-bottom: 1.5rem;
+    font-size: 1.25rem;
+
+    &::before {
+      position: absolute;
+      content: counter(orderedCounter, decimal-leading-zero) '.';
+      left: -3px;
+    }
+
+    & li:last-child {
+      padding-bottom: unset;
+    }
+  }
+}
+
 @keyframes living {
   0% {
     box-shadow: 0 0 0 0.25rem rgb(var(--prose-li-fg) / 0.3);
@@ -336,4 +373,19 @@ html.dark .prose .has-focused:hover .line:not(.focused) {
   margin-right: 0.0875em;
   width: 1em;
   height: 1em;
+}
+
+.prose p > a:not(.prose-link, .markdown-magic-link) {
+  animation: breathing 2.5s infinite;
+}
+
+@keyframes breathing {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  40%,
+  60% {
+    opacity: 0.3;
+  }
 }
