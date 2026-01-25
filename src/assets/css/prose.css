@@ -2,19 +2,21 @@
 
 :root {
   --shiki-dark-bg-0: #151515;
-  --prose-padding-block: 12px;
-  --prose-padding-inline: 1.5rem;
-  --prose-radius: 0.5rem;
+  --prose-pre-padding-block: 12px;
+  --prose-pre-code-padding-inline: 1.5rem;
+  --prose-pre-radius: 0.5rem;
   --prose-diff-add-color: #3dd68c;
-  --prose-diff-add-bg-color: rgb(61 214 140 / 0.35);
+  --prose-diff-add-bg-color: rgb(61 214 140 / 0.18);
   --prose-diff-remove-color: #cb7676;
-  --prose-diff-remove-bg-color: rgb(203 118 118 / 0.35);
-  --prose-highlighted-bg-color: rgba(101, 117, 133, 0.16);
+  --prose-diff-remove-bg-color: rgb(203 118 118 / 0.18);
+  --prose-highlighted-bg-color: rgb(136 136 136 / 0.13);
   --prose-l-highlighted-word-color: #ff8282;
   --prose-highlighted-word-color: #e6a817;
   --prose-focused-opacity: 0.7;
   --prose-focused-blur: 0.095rem;
   --prose-li-fg: var(--colors-pink-rgb);
+  --prose-hr-block: 1.5rem;
+  --prose-hr-fg: rgb(var(--colors-d-rgb) / 0.65);
 }
 
 .prose h1 {
@@ -63,7 +65,7 @@ html.dark .prose .shiki {
 html .prose .shiki {
   color: var(--shiki-light);
   background-color: var(--shiki-light-bg);
-  border-radius: var(--prose-radius);
+  border-radius: var(--prose-pre-radius);
 
   & span {
     color: var(--shiki-light);
@@ -72,23 +74,36 @@ html .prose .shiki {
 
 .prose .shiki {
   position: relative;
-  padding-block: var(--prose-padding-block);
+  padding-block: var(--prose-pre-padding-block);
   margin-block: 0.5rem;
 
   > code {
     display: block;
     line-height: 1.7;
-    padding-inline: var(--prose-padding-inline);
+    padding-inline: var(--prose-pre-code-padding-inline);
   }
 }
 
-.prose .has-diff span.diff::before {
-  position: absolute;
-  left: calc(var(--prose-padding-inline) / 3);
-  transition: color 0.35s;
+.prose .has-diff span.diff {
+  width: calc(100% + (var(--prose-pre-code-padding-inline) * 2));
+  display: inline-block;
+  margin-inline: calc(-1 * var(--prose-pre-code-padding-inline));
+  padding-inline: var(--prose-pre-code-padding-inline);
+
+  &::before {
+    position: absolute;
+    left: calc(var(--prose-pre-code-padding-inline) / 3);
+    transition: color 0.35s;
+  }
+}
+
+html.dark .prose .has-diff span.diff {
+  background: unset;
 }
 
 .prose .has-diff span.diff.add {
+  background-color: var(--prose-diff-add-bg-color);
+
   &::before {
     content: '+';
     color: var(--prose-diff-add-color);
@@ -97,6 +112,7 @@ html .prose .shiki {
 
 .prose .has-diff span.diff.remove {
   opacity: 0.75;
+  background-color: var(--prose-diff-remove-bg-color);
 
   &::before {
     content: '-';
@@ -108,13 +124,14 @@ html.dark .prose .has-diff span.diff.remove {
   opacity: 0.85;
 }
 
-html.dark .prose .has-highlighted span.highlighted {
+.prose .has-highlighted span.highlighted,
+.prose span.highlighted {
   background-color: var(--prose-highlighted-bg-color);
   transition: background-color 0.35s;
-  width: calc(100% + (var(--prose-padding-inline) * 2));
+  width: calc(100% + (var(--prose-pre-code-padding-inline) * 2));
   display: inline-block;
-  margin-inline: -1.5rem;
-  padding-inline: var(--prose-padding-inline);
+  margin-inline: calc(-1 * var(--prose-pre-code-padding-inline));
+  padding-inline: var(--prose-pre-code-padding-inline);
 }
 
 .prose .shiki span.highlighted-word {
@@ -142,7 +159,8 @@ html.dark .prose .shiki span.highlighted-word {
 }
 
 .prose hr {
-  height: 1rem;
+  margin-block: var(--prose-hr-block);
+  color: var(--prose-hr-fg);
 }
 
 .prose mark,
@@ -168,7 +186,7 @@ html.dark .prose .shiki span.highlighted-word {
     position: absolute;
     content: '';
     width: 0.25rem;
-    background-color: rgba(125, 125, 125, 0.3);
+    background-color: rgb(125 125 125 / 0.3);
     top: 0.6rem;
     bottom: 0.4rem;
     border-radius: 3px;
@@ -185,18 +203,18 @@ html.dark .prose .shiki span.highlighted-word {
   display: flex;
   gap: 3px;
   font-size: 0.875rem;
-  color: rgba(255, 255, 255, 0.55);
+  color: rgb(0 0 0 / 0.55);
   align-items: center;
 
   &.markdown-magic-link-github-at {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgb(0 0 0 / 0.1);
     border-radius: 1.5em;
     width: fit-content;
     padding-right: 0.6em;
     transition: background-color 0.35s;
 
     &:hover {
-      background-color: rgba(255, 255, 255, 0.15);
+      background-color: rgb(0 0 0 / 0.15);
     }
   }
 
@@ -208,6 +226,18 @@ html.dark .prose .shiki span.highlighted-word {
     background-repeat: no-repeat;
     background-position: center;
     border-radius: 50%;
+  }
+}
+
+html.dark .prose .markdown-magic-link {
+  color: rgb(255 255 255 / 0.55);
+
+  &.markdown-magic-link-github-at {
+    background-color: rgb(255 255 255 / 0.1);
+
+    &:hover {
+      background-color: rgb(255 255 255 / 0.15);
+    }
   }
 }
 
