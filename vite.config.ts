@@ -16,7 +16,6 @@ import { imgLazyload } from '@mdit/plugin-img-lazyload'
 import { obsidianImgSize } from '@mdit/plugin-img-size'
 import { mark } from '@mdit/plugin-mark'
 import { ruby } from '@mdit/plugin-ruby'
-import { snippet } from '@mdit/plugin-snippet'
 import { full as emoji } from 'markdown-it-emoji'
 import linkAttributes from 'markdown-it-link-attributes'
 import magicLink from 'markdown-it-magic-link'
@@ -32,6 +31,7 @@ import {
 } from '@shikijs/transformers'
 import { transformerColorizedBrackets } from '@shikijs/colorized-brackets'
 import beautifulLink from 'markdown-it-beautiful-link'
+import codeSnippet from 'markdown-it-code-snippet'
 
 export default defineConfig({
   resolve: {
@@ -126,16 +126,6 @@ export default defineConfig({
           .use(obsidianImgSize)
           .use(mark)
           .use(ruby)
-          .use(snippet, {
-            currentPath: env => env.filePath,
-            resolvePath: path => {
-              if (path.startsWith('~')) {
-                return path.replace('~', 'src')
-              }
-
-              return path
-            }
-          })
           .use(emoji)
           .use(linkAttributes, {
             matcher: (link: string) => /^https?:\/\//.test(link),
@@ -157,6 +147,9 @@ export default defineConfig({
             }
           })
           .use(beautifulLink)
+          .use(codeSnippet, {
+            resolvePath: (filePath: string) => filePath.replace('~', 'src')
+          })
       }
     })
   ]
