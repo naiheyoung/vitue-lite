@@ -6,11 +6,8 @@
 
 <script setup lang="ts">
 import type { Frontmatter } from 'unplugin-vue-markdown/types'
-const { frontmatter } = defineProps<{
-  frontmatter: Frontmatter
-}>()
 
-onMounted(() => {})
+const { frontmatter } = defineProps<{ frontmatter: Frontmatter }>()
 </script>
 
 <style scoped>

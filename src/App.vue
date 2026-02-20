@@ -10,12 +10,12 @@
   </main>
   <Transition mode="out-in">
     <div
-      v-if="imageMeta.src"
-      class="fixed inset-0 wvw hvh max-wdvw max-hdvh bg-transparent backdrop-blur z-9">
+      class="fixed inset-0 wvw hvh max-wdvw max-hdvh bg-transparent backdrop-blur z-9"
+      v-if="imageMeta.src">
       <img
         class="rounded object-contain max-w-dvw max-h-dvh w-full h-full"
-        :src="imageMeta.src"
-        :alt="imageMeta.desc || imageMeta.src" />
+        :alt="imageMeta.desc || imageMeta.src"
+        :src="imageMeta.src" />
       <div
         class="fixed right-4 bottom-10 bg-black text-yellow/75 px-3 py-1 rounded font-mono"
         v-show="imageMeta.desc"
@@ -25,10 +25,7 @@
 </template>
 
 <script setup lang="ts">
-const imageMeta = reactive<{
-  src: string | null
-  desc: string | null
-}>({
+const imageMeta = reactive<{ src: string | null; desc: string | null }>({
   src: null,
   desc: null
 })

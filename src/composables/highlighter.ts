@@ -1,6 +1,6 @@
+import type { ShikiTransformer } from '@shikijs/core'
 import { createHighlighter } from './shiki.bundle'
 import { addClassToHast } from '@shikijs/core'
-import type { ShikiTransformer } from '@shikijs/core'
 
 const highlighter = await createHighlighter({
   langs: [

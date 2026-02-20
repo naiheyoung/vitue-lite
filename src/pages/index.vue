@@ -2,11 +2,11 @@
   <div text-gray-500>
     <div flex justify-center>
       <svg
+        xmlns="http://www.w3.org/2000/svg"
         id="vitue-lite"
         width="6.25rem"
         height="7.8125rem"
-        viewBox="200 190 60 75"
-        xmlns="http://www.w3.org/2000/svg">
+        viewBox="200 190 60 75">
         <desc>Source: openclipart.org/detail/209545</desc>
         <defs></defs>
         <g transform="matrix(1, 0, 0, 1, 102.399995, 97.600023)">
@@ -42,7 +42,7 @@
     </div>
     <p font-italic font-mono>Opinionated Vite Starter Template</p>
     <nav mt3>
-      <RouterLink py1 px3 rounded-sm btn font-mono to="/me">See More</RouterLink>
+      <RouterLink btn font-mono px3 py1 rounded-sm to="/me">See More</RouterLink>
     </nav>
   </div>
 </template>

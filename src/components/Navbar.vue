@@ -1,14 +1,14 @@
 <template>
-  <nav mt3 fixed top-4 right-4 flex gap-x-3 z-9>
+  <nav fixed flex gap-x-3 mt3 right-4 top-4 z-9>
     <div class="hover:cursor-pointer transition-opacity opacity-0" @click="backToTop()">
       <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 24 24">
         <path
+          d="M12 5v6m0 3v1.5m0 3v.5m6-8l-6-6m-6 6l6-6"
           fill="none"
           stroke="currentColor"
           stroke-linecap="round"
           stroke-linejoin="round"
-          stroke-width="2"
-          d="M12 5v6m0 3v1.5m0 3v.5m6-8l-6-6m-6 6l6-6" />
+          stroke-width="2" />
       </svg>
     </div>
     <div>
@@ -16,22 +16,22 @@
         xmlns="http://www.w3.org/2000/svg"
         width="1.2em"
         height="1.2em"
-        viewBox="0 0 21 21"
-        class="flip">
+        class="flip"
+        viewBox="0 0 21 21">
         <path
+          d="m8.5 3.5l4 14"
           fill="none"
           stroke="currentColor"
           stroke-linecap="round"
-          stroke-linejoin="round"
-          d="m8.5 3.5l4 14" />
+          stroke-linejoin="round" />
       </svg>
     </div>
-    <router-link to="/" i-carbon:home icon-btn />
+    <router-link i-carbon:home icon-btn to="/" />
     <a
-      to="/"
+      dark:i-carbon:moon
       i-carbon:sun
       icon-btn
-      dark:i-carbon:moon
+      to="/"
       @click="
         useThemeSwitchAnime(
           $event,
@@ -42,9 +42,9 @@
       " />
     <a
       href="https://github.com/naiheyoung/vitue-lite"
-      target="_blank"
       i-carbon:logo-github
-      icon-btn />
+      icon-btn
+      target="_blank" />
   </nav>
 </template>
 
@@ -52,10 +52,7 @@
 const { y } = useScroll(document)
 
 const backToTop = () => {
-  document.body.scrollIntoView({
-    behavior: 'smooth',
-    block: 'start'
-  })
+  document.body.scrollIntoView({ behavior: 'smooth', block: 'start' })
 }
 
 const debouncedScrollHandler = useDebounceFn(() => {

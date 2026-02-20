@@ -43,9 +43,7 @@ export function useThemeSwitchAnime(
   viewTransition.ready.then(() => {
     const effect = [`circle(0px at ${x}px ${y}px)`, `circle(${endRadio}px at ${x}px ${y}px)`]
     document.documentElement.animate(
-      {
-        clipPath: isDark() ? effect : effect.reverse()
-      },
+      { clipPath: isDark() ? effect : effect.reverse() },
       {
         duration: delay,
         easing: 'ease-in-out',

@@ -6,7 +6,7 @@
     <div class="error__footer my4">
       <div class="error__footer__text"></div>
       $
-      <RouterLink to="/" font-mono opacity-75>cd ..</RouterLink>
+      <RouterLink font-mono opacity-75 to="/">cd ..</RouterLink>
     </div>
   </div>
 </template>
